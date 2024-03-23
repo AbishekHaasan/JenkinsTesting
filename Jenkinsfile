@@ -27,6 +27,6 @@ pipeline {
 
   }
   environment {
-    ChromeDriver = '"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"'
+    ChromeDriver = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
   }
 }
