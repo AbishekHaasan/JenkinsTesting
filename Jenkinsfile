@@ -16,11 +16,18 @@ pipeline {
           }
         }
 
+        stage('Test Log') {
+          steps {
+            writeFile(file: 'TestLog', text: 'This is an automation text file')
+          }
+        }
+
       }
     }
 
     stage('Deploy') {
       steps {
+        archiveArtifacts 'LogFile'
         echo 'Deployig the app in IIS server'
       }
     }
