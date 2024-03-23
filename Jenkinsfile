@@ -30,13 +30,13 @@ pipeline {
         stage('Artifacts') {
           steps {
             archiveArtifacts 'TestLog'
-            echo 'Deployig the app in IIS server'
           }
         }
 
         stage('Deploy') {
           steps {
             input(message: 'Provide acknowledgement', id: 'Ok')
+            echo 'Deploying the app in IIS server'
           }
         }
 
