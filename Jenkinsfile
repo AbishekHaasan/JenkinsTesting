@@ -29,7 +29,7 @@ pipeline {
       parallel {
         stage('Artifacts') {
           steps {
-            archiveArtifacts 'LogFile'
+            archiveArtifacts 'TestLog'
             echo 'Deployig the app in IIS server'
           }
         }
