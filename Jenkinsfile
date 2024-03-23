@@ -26,9 +26,20 @@ pipeline {
     }
 
     stage('Deploy') {
-      steps {
-        archiveArtifacts 'LogFile'
-        echo 'Deployig the app in IIS server'
+      parallel {
+        stage('Artifacts') {
+          steps {
+            archiveArtifacts 'LogFile'
+            echo 'Deployig the app in IIS server'
+          }
+        }
+
+        stage('Deploy') {
+          steps {
+            input(message: 'Provide acknowledgement', id: 'Ok')
+          }
+        }
+
       }
     }
 
